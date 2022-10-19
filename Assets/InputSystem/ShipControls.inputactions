@@ -7,27 +7,27 @@
             "actions": [
                 {
                     "name": "Throttle",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "db1be233-22ab-4bcc-837c-b58796fc1fff",
                     "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Rotation",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "bd18e8de-9d9f-47cb-9287-13b5f1b8166d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Elevation",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "3afdfd9a-d5fc-41e6-9215-012a6d06cdda",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
