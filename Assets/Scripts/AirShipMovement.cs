@@ -14,7 +14,7 @@ public class AirShipMovement : MonoBehaviour
     [SerializeField]
     float acceleration = 10f;//How fast the ship can accelerate
     [SerializeField]
-    float throttleInput, throttleMin, throttleMax, throttleCurrent;
+    float throttleInput, throttleMin, throttleMax, throttleCurrent, throttleStage;
     [SerializeField]
     float elevationInput, elevationMin, elevationMax, elevationCurrent;
     [SerializeField]
@@ -48,6 +48,8 @@ public class AirShipMovement : MonoBehaviour
     public void GetThrottleInput(InputAction.CallbackContext context)
     {
         throttleInput = context.ReadValue<float>();
+        throttleStage = Mathf.Clamp(throttleStage += throttleInput,-1,4);
+       
     }
 
     public void getElevationInput(InputAction.CallbackContext context)
@@ -62,7 +64,7 @@ public class AirShipMovement : MonoBehaviour
 
     void ProcessThrottleInput()
     {
-        throttleCurrent += throttleInput * Time.deltaTime * acceleration;// slowly adjusts accelleration
+        throttleCurrent += (throttleStage/4) * Time.deltaTime * acceleration;// slowly adjusts accelleration
         throttleCurrent = Mathf.Clamp(throttleCurrent, throttleMin, throttleMax);//clamps throttle to min and max
     }
 
@@ -78,29 +80,29 @@ public class AirShipMovement : MonoBehaviour
         elevationCurrent = Mathf.Clamp(elevationCurrent, elevationMin, elevationMax); // clamps elevation to min and max
     }
 
-
-
     private void ThrottleUpdate()
     {
-        Vector2 horizontalComponents = new Vector2(rb.velocity.x, rb.velocity.z);
+        Vector2 horizontalProperties = new Vector2(rb.velocity.x, rb.velocity.z);
 
-        if (Mathf.Abs(horizontalComponents.magnitude - throttleCurrent) > 0f)
+        if (Mathf.Abs(horizontalProperties.magnitude - throttleCurrent) > 0f)
         {
-            if (horizontalComponents.magnitude < throttleMax)
+            if (horizontalProperties.magnitude < throttleMax)
             {
-                //if trying to move in the opposite direction of current velocity, increase thrust
-               if (Vector2.Dot(throttleInput * transform.forward, new Vector3(horizontalComponents.x, 0, horizontalComponents.y)) < 0)//this denotes that some of the desired velocity is , at least,  somewhat in the opposite direction to the current horizontal velocity
+                if ((throttleStage / 4) != 0)// if the throttle is not at zero
                 {
-                    rb.AddRelativeForce(transform.forward * (throttleInput * thrust * breakThrustModifier));
+                    //if trying to move in the opposite direction of current velocity, increase thrust
+                    if (Vector2.Dot((throttleStage / 4) * transform.forward, new Vector3(horizontalProperties.x, 0, horizontalProperties.y)) < 0)//this denotes that some of the desired velocity is , at least,  somewhat in the opposite direction to the current horizontal velocity
+                    {
+                        rb.AddRelativeForce(Vector3.forward * ((throttleStage / 4) * thrust * breakThrustModifier));// gets the throttle and multiplies the thrust by it to produce a positive or negative, also gives increased thrust becasue above condition is true
+                    }
+                    else
+                    {
+                        rb.AddRelativeForce(Vector3.forward * ((throttleStage / 4) * thrust));// normal thrust
+                    }
                 }
-                else
-                {
-                    rb.AddRelativeForce(transform.forward * (throttleInput * thrust));
-                }
-
             }
 
-            if (horizontalComponents.magnitude > throttleMax)
+            if (horizontalProperties.magnitude > (throttleMax * Mathf.Abs(throttleStage / 4)))// limmits speed based on throttle and throttle max
             {
                 rb.drag += 0.1f;
             }

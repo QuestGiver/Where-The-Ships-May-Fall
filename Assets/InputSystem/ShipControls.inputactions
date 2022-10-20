@@ -7,11 +7,11 @@
             "actions": [
                 {
                     "name": "Throttle",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "db1be233-22ab-4bcc-837c-b58796fc1fff",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {

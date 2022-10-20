@@ -308,6 +308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4603865926297503443, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
+      propertyPath: dragMin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4603865926297503444, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
       propertyPath: m_Name
       value: ShipBase
