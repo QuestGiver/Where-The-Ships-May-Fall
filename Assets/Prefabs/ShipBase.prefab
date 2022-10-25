@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4603865926297503441}
   - component: {fileID: 4603865926297503440}
   - component: {fileID: 4603865926297503443}
+  - component: {fileID: 4975089039424257701}
   - component: {fileID: 4603865926297503442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShipBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c517ddaea633e64d94eace394aade00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragMin: 0
+  dragMin: 1
   thrust: 10
   breakThrustModifier: 2
   acceleration: 10
@@ -136,6 +137,7 @@ MonoBehaviour:
   throttleMin: -10
   throttleMax: 10
   throttleCurrent: 0
+  throttleStage: 0
   elevationInput: 0
   elevationMin: -10
   elevationMax: 10
@@ -146,6 +148,24 @@ MonoBehaviour:
   rotationSpeedMax: 1
   rotationSpeedCurrent: 0
   rb: {fileID: 4603865926297503445}
+--- !u!114 &4975089039424257701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603865926297503444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51cb266b89476f4187a01074c0992e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RocketObjectSource: {fileID: 4425729154219073350, guid: fcc5fe8537f67e94b9f4c150bebcedcd, type: 3}
+  poolSize: 10
+  speed: 5
+  Apogee: {x: 0, y: 0, z: -5}
+  randomMin: -10
+  randomMax: 10
 --- !u!114 &4603865926297503442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +239,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3afdfd9a-d5fc-41e6-9215-012a6d06cdda
     m_ActionName: DefaulAirshipControls/Elevation[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4975089039424257701}
+        m_TargetAssemblyTypeName: ProjectileSpawner, Assembly-CSharp
+        m_MethodName: GetAttackInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c447e9c7-be34-4bfa-9e0c-211f789d1622
+    m_ActionName: DefaulAirshipControls/PrimaryAttack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: M&K
   m_DefaultActionMap: DefaulAirshipControls
