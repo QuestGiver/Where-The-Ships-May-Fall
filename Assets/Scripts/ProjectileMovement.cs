@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketController : MonoBehaviour
+public class ProjectileMovement : MonoBehaviour
 {
     [SerializeField]
     Vector3 startingPoint, apogeeTransition, apogeeOriginal, endPoint;//Apogee is intended to interpolate from it's original position to endPoint.
@@ -14,8 +14,6 @@ public class RocketController : MonoBehaviour
     float time = 0f;
     [SerializeField]
     ProjectileSpawner projectileSpawner;
-    [SerializeField]
-    bool isFired = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +62,5 @@ public class RocketController : MonoBehaviour
         apogeeOriginal = Vector3.zero;
         speed = 0f;
         time = 0f;
-        isFired = false;
     }
 }

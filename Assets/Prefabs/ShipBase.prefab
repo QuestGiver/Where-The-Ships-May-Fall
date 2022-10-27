@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4603865926297503440}
   - component: {fileID: 4603865926297503443}
   - component: {fileID: 4975089039424257701}
+  - component: {fileID: 6489748394439197012}
+  - component: {fileID: 1790167910505854198}
   - component: {fileID: 4603865926297503442}
   m_Layer: 3
   m_Name: ShipBase
@@ -166,6 +168,36 @@ MonoBehaviour:
   Apogee: {x: 0, y: 0, z: -5}
   randomMin: -10
   randomMax: 10
+--- !u!114 &6489748394439197012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603865926297503444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830961058927d9f419e1af50f101d193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: {fileID: 0}
+--- !u!114 &1790167910505854198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603865926297503444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dfda36ed1c99469f0eb17aa76fcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueMax: 0
+  valueCurrent: 0
+  subtractionMitigation: 0
+  additionMitigation: 100
+  valueMin: 0
 --- !u!114 &4603865926297503442
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     GameObject RocketObjectSource;
     [SerializeField]
-    public Queue<RocketController> RocketPool = new Queue<RocketController>();
+    public Queue<ProjectileMovement> RocketPool = new Queue<ProjectileMovement>();
     [SerializeField]
     int poolSize = 10;
     [SerializeField]
@@ -29,8 +29,8 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 GameObject RocketObject = Instantiate(RocketObjectSource, transform.position, Quaternion.identity);
                 RocketObject.SetActive(false);
-                RocketObject.GetComponent<RocketController>().SetSpawner(this);
-                RocketPool.Enqueue(RocketObject.GetComponent<RocketController>());
+                RocketObject.GetComponent<ProjectileMovement>().SetSpawner(this);
+                RocketPool.Enqueue(RocketObject.GetComponent<ProjectileMovement>());
             }
         }
     }
@@ -57,7 +57,7 @@ public class ProjectileSpawner : MonoBehaviour
 
     void processAttackInput()
     {
-        RocketController rocket = RocketPool.Dequeue();
+        ProjectileMovement rocket = RocketPool.Dequeue();
         rocket.gameObject.SetActive(true);
         Vector3 random = new Vector3(Random.Range(randomMin, randomMax), Random.Range(randomMin, randomMax), 0);
         rocket.SetRocketController(transform.position, transform.position + transform.forward * 100f, transform.localPosition + Apogee + random, transform.localPosition + Apogee + random, speed);
