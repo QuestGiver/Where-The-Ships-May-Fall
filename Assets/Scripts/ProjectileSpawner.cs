@@ -14,7 +14,7 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     float speed = 1f;
     [SerializeField]
-    Vector3 Apogee;
+    Transform Apogee;
     [SerializeField]
     float randomMin = -10f;
     [SerializeField]
@@ -34,17 +34,11 @@ public class ProjectileSpawner : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.localPosition + Apogee, 0.5f);
+        Gizmos.DrawSphere(Apogee.position, 0.5f);
     }
 #endif
     public void GetAttackInput(InputAction.CallbackContext context)
@@ -60,7 +54,7 @@ public class ProjectileSpawner : MonoBehaviour
         ProjectileMovement rocket = RocketPool.Dequeue();
         rocket.gameObject.SetActive(true);
         Vector3 random = new Vector3(Random.Range(randomMin, randomMax), Random.Range(randomMin, randomMax), 0);
-        rocket.SetRocketController(transform.position, transform.position + transform.forward * 100f, transform.localPosition + Apogee + random, transform.localPosition + Apogee + random, speed);
+        rocket.SetRocketController(transform.position, transform.position + transform.forward * 100f, Apogee.position + random, Apogee.position + random, speed);
     }
 
 }

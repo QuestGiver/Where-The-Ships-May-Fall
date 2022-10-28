@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ProjectileMovement : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class ProjectileMovement : MonoBehaviour
     float time = 0f;
     [SerializeField]
     ProjectileSpawner projectileSpawner;
+    [SerializeField]
+    Vector2 randomEndPointModifier = new Vector2(0f, 0f);
+
+    public UnityEvent OnInterpolation = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +42,8 @@ public class ProjectileMovement : MonoBehaviour
     {
         time += speed * Time.deltaTime;
         transform.position = Vector3.Lerp(startingPoint, apogeeTransition, time);
-        apogeeTransition = Vector3.Lerp(apogeeOriginal, endPoint, time / 2);
+        apogeeTransition = Vector3.Lerp(apogeeOriginal, endPoint,  time/ApogeeTransitionScaler);
+        OnInterpolation.Invoke();
     }
 
     public void SetSpawner(ProjectileSpawner spawner)

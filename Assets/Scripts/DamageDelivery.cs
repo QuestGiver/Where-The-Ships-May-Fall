@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DamagePoints : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PointValueCapsule))]
+public class DamageDelivery : MonoBehaviour
 {
     [SerializeField]
     PointValueCapsule damagePoints;
@@ -11,7 +12,8 @@ public class DamagePoints : MonoBehaviour
     [SerializeField]
     bool expended = false;
 
-    private void OnTriggerEnter(Collider collider)
+
+    public void DeliverDamage(Collider collider)
     {
         if ((collider.gameObject.layer == targetLayer) && !expended)
         {
