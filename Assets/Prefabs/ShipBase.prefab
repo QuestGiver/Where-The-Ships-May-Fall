@@ -1,5 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &963194225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963194228}
+  - component: {fileID: 963194227}
+  - component: {fileID: 963194226}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963194228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4699993, z: -3.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4603865926297503455}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &963194227
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &963194226
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+--- !u!1 &1281917835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281917836}
+  m_Layer: 3
+  m_Name: Apogee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1281917836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281917835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4603865926297503455}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4603865926297503444
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +129,7 @@ GameObject:
   - component: {fileID: 4603865926297503441}
   - component: {fileID: 4603865926297503440}
   - component: {fileID: 4603865926297503443}
+  - component: {fileID: 8818085391095702277}
   - component: {fileID: 4975089039424257701}
   - component: {fileID: 6489748394439197012}
   - component: {fileID: 1790167910505854198}
@@ -36,7 +152,9 @@ Transform:
   m_LocalPosition: {x: 3.6286526, y: 12.582045, z: 7.1039443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1281917836}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,6 +268,21 @@ MonoBehaviour:
   rotationSpeedMax: 1
   rotationSpeedCurrent: 0
   rb: {fileID: 4603865926297503445}
+--- !u!114 &8818085391095702277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603865926297503444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c88e3a3919786746a2be6d682682d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleInput: 0
+  elevationInput: 0
+  rotationInput: 0
 --- !u!114 &4975089039424257701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,9 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RocketObjectSource: {fileID: 4425729154219073350, guid: fcc5fe8537f67e94b9f4c150bebcedcd, type: 3}
-  poolSize: 10
-  speed: 5
-  Apogee: {x: 0, y: 0, z: -5}
+  poolSize: 50
+  speed: 1
+  Apogee: {fileID: 1281917836}
   randomMin: -10
   randomMax: 10
 --- !u!114 &6489748394439197012
@@ -180,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830961058927d9f419e1af50f101d193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: {fileID: 0}
+  hitPoints: {fileID: 1790167910505854198}
 --- !u!114 &1790167910505854198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dfda36ed1c99469f0eb17aa76fcce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueMax: 0
-  valueCurrent: 0
-  subtractionMitigation: 0
-  additionMitigation: 100
+  valueMax: 100
+  valueCurrent: 100
   valueMin: 0
+  subtractionMultiplier: 0
+  additionMultiplier: 0
 --- !u!114 &4603865926297503442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +358,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4603865926297503443}
-        m_TargetAssemblyTypeName: AirShipMovement, Assembly-CSharp
+      - m_Target: {fileID: 8818085391095702277}
+        m_TargetAssemblyTypeName: PlayerInputReceiver, Assembly-CSharp
         m_MethodName: GetThrottleInput
         m_Mode: 0
         m_Arguments:
@@ -241,9 +374,9 @@ MonoBehaviour:
     m_ActionName: DefaulAirshipControls/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4603865926297503443}
-        m_TargetAssemblyTypeName: AirShipMovement, Assembly-CSharp
-        m_MethodName: getRotationInput
+      - m_Target: {fileID: 8818085391095702277}
+        m_TargetAssemblyTypeName: PlayerInputReceiver, Assembly-CSharp
+        m_MethodName: GetRotationInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -257,9 +390,9 @@ MonoBehaviour:
     m_ActionName: DefaulAirshipControls/Rotation[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4603865926297503443}
-        m_TargetAssemblyTypeName: AirShipMovement, Assembly-CSharp
-        m_MethodName: getElevationInput
+      - m_Target: {fileID: 8818085391095702277}
+        m_TargetAssemblyTypeName: PlayerInputReceiver, Assembly-CSharp
+        m_MethodName: GetElevationInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

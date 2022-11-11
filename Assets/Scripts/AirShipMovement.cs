@@ -23,11 +23,16 @@ public class AirShipMovement : MonoBehaviour
     float rotationInput, rotationSpeedMin, rotationSpeedMax, rotationSpeedCurrent;
     [SerializeField]
     Rigidbody rb;
-
+    [SerializeField]
+    DelineateInput delineatedInput;
     // Start is called before the first frame update
     void Start()
     {
-
+        delineatedInput = GetComponent<DelineateInput>();
+        delineatedInput.OnInput += GetThrottleInput;
+        delineatedInput.OnInput += GetElevationInput;
+        delineatedInput.OnInput += GetRotationInput;
+        Debug.Log("delineatedInput: " + delineatedInput);
     }
 
     void FixedUpdate()
@@ -45,21 +50,21 @@ public class AirShipMovement : MonoBehaviour
         RotationUpdate();
     }
 
-    public void GetThrottleInput(InputAction.CallbackContext context)
+    public void GetThrottleInput()
     {
-        throttleInput = context.ReadValue<float>();
+        throttleInput = delineatedInput.ReturnThrottleInput();
         throttleStage = Mathf.Clamp(throttleStage += throttleInput,-1,4);
        
     }
 
-    public void getElevationInput(InputAction.CallbackContext context)
+    public void GetElevationInput()
     {
-        elevationInput = context.ReadValue<float>();
+        elevationInput = delineatedInput.ReturnElevationInput();
     }
 
-    public void getRotationInput(InputAction.CallbackContext context)
+    public void GetRotationInput()
     {
-        rotationInput = context.ReadValue<float>();
+        rotationInput = delineatedInput.ReturnRotationInput();
     }
 
     void ProcessThrottleInput()

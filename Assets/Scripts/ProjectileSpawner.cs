@@ -53,7 +53,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
         ProjectileMovement rocket = RocketPool.Dequeue();
         rocket.gameObject.SetActive(true);
-        Vector3 random = new Vector3(Random.Range(randomMin, randomMax), Random.Range(randomMin, randomMax), 0);
+        Vector3 random = new Vector3(Random.Range(randomMin, randomMax), Random.Range(randomMin, randomMax), Random.Range(randomMin, randomMax));
         rocket.SetRocketController(transform.position, transform.position + transform.forward * 100f, Apogee.position + random, Apogee.position + random, speed);
     }
 
