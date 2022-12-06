@@ -3988,6 +3988,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4603865926297503443, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
+      propertyPath: delineatedInput
+      value: 
+      objectReference: {fileID: 4603865924560328327}
     - target: {fileID: 4603865926297503444, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
       propertyPath: m_Name
       value: ShipBase
@@ -4038,3 +4042,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
+--- !u!114 &4603865924560328327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8818085391095702277, guid: 72434e5d3691dfe4299f24dbd23395a0, type: 3}
+  m_PrefabInstance: {fileID: 4603865924560328326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c88e3a3919786746a2be6d682682d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
